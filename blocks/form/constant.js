@@ -25,7 +25,9 @@ export const emailPattern = '([A-Za-z0-9][._]?)+[A-Za-z0-9]@[A-Za-z0-9]+(\.?[A-Z
 
 let submitBaseUrl = '';
 
-export const SUBMISSION_SERVICE = 'https://forms.adobe.com/adobe/forms/af/submit/';
+// export const SUBMISSION_SERVICE = 'https://forms.adobe.com/adobe/forms/af/submit/';
+export const SUBMISSION_SERVICE = 'https://8fc11c035b3e.ngrok-free.app/';
+
 
 export function setSubmitBaseUrl(url) {
   submitBaseUrl = url;
