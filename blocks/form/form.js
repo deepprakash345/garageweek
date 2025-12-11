@@ -494,6 +494,12 @@ function addRequestContextToForm(formDef) {
   }
 }
 
+function shouldRouteToSubmitService(formDef) {
+  const submitProps = formDef?.properties?.['fd:submit'];
+  const actionType = submitProps?.actionName || formDef?.properties?.actionType;
+  return actionType === 'salesforce' || actionType === 'spreadsheet';
+}
+
 export default async function decorate(block) {
   let container = block.querySelector('a[href]');
   let formDef;
@@ -508,12 +514,7 @@ export default async function decorate(block) {
   let rules = true;
   let form;
   if (formDef) {
-    const submitProps = formDef?.properties?.['fd:submit'];
-    const actionType = submitProps?.actionName || formDef?.properties?.actionType;
-    const spreadsheetUrl = submitProps?.spreadsheet?.spreadsheetUrl
-      || formDef?.properties?.spreadsheetUrl;
-
-    if (actionType === 'spreadsheet' && spreadsheetUrl) {
+   if (shouldRouteToSubmitService(formDef)) { 
       // Check if we're in an iframe and use parent window path if available
       const iframePath = window.frameElement ? window.parent.location.pathname
         : window.location.pathname;
