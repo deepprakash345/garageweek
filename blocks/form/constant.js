@@ -26,7 +26,8 @@ export const emailPattern = '([A-Za-z0-9][._]?)+[A-Za-z0-9]@[A-Za-z0-9]+(\.?[A-Z
 let submitBaseUrl = '';
 
 // export const SUBMISSION_SERVICE = 'https://forms.adobe.com/adobe/forms/af/submit/';
-export const SUBMISSION_SERVICE = 'https://8fc11c035b3e.ngrok-free.app/';
+// export const SUBMISSION_SERVICE = 'https://832c1bf67e24.ngrok-free.app';
+export const SUBMISSION_SERVICE = 'https://94ye08ajri.execute-api.ap-south-1.amazonaws.com/vega/forms-collector/garageweek/';
 
 
 export function setSubmitBaseUrl(url) {
