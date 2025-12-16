@@ -395,20 +395,14 @@ function getAuthoringAssistantUrl() {
 
   // Determine base URL based on version
   let baseUrl;
-  if (version === 'local') {
-    baseUrl = LOCAL_URL;
-  } else {
-    baseUrl = version ? PROD_URL : STAGE_URL;
-  }
+  baseUrl = LOCAL_URL;
+  
 
   // Construct URL with parameters
   const url = new URL(baseUrl);
-  if (version) {
-    url.searchParams.append('livecycle-authoring-assistant-spa_version', version);
-  }
-  if (endpoint) {
-    url.searchParams.append('endpoint', endpoint);
-  }
+  url.searchParams.append('livecycle-authoring-assistant-spa_version', 'local');
+  url.searchParams.append('endpoint', 'local');
+  
 
   return url.toString();
 }
